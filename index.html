@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaffna Travel Guide — Northern Sri Lanka</title>
+  <meta name="description" content="Explore 11 essential places in Jaffna, Northern Sri Lanka — temples, beaches, history and culture." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet WebGIS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/map.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="nav-logo-text">Jaffna</span>
+        <span class="nav-logo-sub">Travel Guide</span>
+      </div>
+      <div class="nav-links">
+        <a href="#places" class="nav-link">Places</a>
+        <a href="#map" class="nav-link">Map</a>
+        <a href="#tips" class="nav-link">Tips</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northern Sri Lanka</div>
+      <h1 class="hero-title">Discover <em>Jaffna</em></h1>
+      <p class="hero-sub">11 essential places — temples, beaches, history &amp; culture</p>
+      <div class="hero-divider"></div>
+      <div class="hero-actions">
+        <a href="#places" class="btn-primary">Explore Places</a>
+        <a href="#map" class="btn-outline">View Map</a>
+      </div>
+    </div>
+    <div class="hero-scroll">↓</div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">11</span><span class="stat-label">Places</span></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Temples</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Historic Sites</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Beaches</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Island Trips</span></div>
+  </div>
+
+  <!-- PLACES SECTION -->
+  <section class="places-section" id="places">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Where to Go</span>
+        <h2 class="section-title-lg">All Attractions</h2>
+      </div>
+
+      <!-- FILTERS -->
+      <nav class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Places</button>
+        <button class="filter-btn" data-filter="temple">Temples</button>
+        <button class="filter-btn" data-filter="historic">Historic</button>
+        <button class="filter-btn" data-filter="beach">Beaches &amp; Nature</button>
+        <button class="filter-btn" data-filter="food">Food</button>
+        <button class="filter-btn" data-filter="culture">Culture</button>
+      </nav>
+
+      <!-- GRID -->
+      <div class="grid" id="places-grid">
+
+        <article class="card" data-cat="temple" data-id="1">
+          <div class="card-accent temple"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon temple">🛕</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Nallur Kandaswamy Kovil</h3>
+                <p class="card-location">Nallur, Jaffna town</p>
+              </div>
+              <button class="card-map-pin" data-id="1" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">The spiritual heart of Jaffna — a magnificent Dravidian temple dedicated to Lord Murugan with a golden gopuram visible for miles. Men must remove shirts to enter. No cameras inside.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">4:15 AM – 6:15 PM</span>
+              <span class="tag tag-free">Free entry</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=8725085747263639830" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="culture" data-id="2">
+          <div class="card-accent culture"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon culture">📚</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Jaffna Public Library</h3>
+                <p class="card-location">Clock Tower Road, Jaffna</p>
+              </div>
+              <button class="card-map-pin" data-id="2" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">One of Asia's finest libraries and a proud symbol of Tamil heritage. Rebuilt after 1981, it stands today with stunning colonial architecture and a peaceful garden.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">Tue–Sun, 8:30 AM – 6 PM</span>
+              <span class="tag tag-warn">Closed Mondays</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=5971132047731162572" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="historic" data-id="3">
+          <div class="card-accent historic"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon historic">🏛</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Mantri Manai</h3>
+                <p class="card-location">Near Nallur, Jaffna</p>
+              </div>
+              <button class="card-map-pin" data-id="3" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">The ancient residence of King Sangiliyan's chief minister — a rare surviving relic of Jaffna's royal past with atmospheric 16th-century stone architecture.</p>
+            <div class="card-footer">
+              <span class="tag tag-dist">Near Nallur Kovil</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=16102787576340116079" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="food" data-id="4">
+          <div class="card-accent food"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon food">🍦</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Rio Ice Cream</h3>
+                <p class="card-location">AB20, Near Nallur Kovil</p>
+              </div>
+              <button class="card-map-pin" data-id="4" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">A Jaffna institution. Famous for the Rio Special, 5-flavour Jumbo, and handmade coconut fudge. Pay at the counter first, then collect. Always crowded — a good sign!</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">Daily 9 AM – 10 PM</span>
+              <span class="tag tag-free">Budget-friendly</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=14106688823294126549" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="historic" data-id="5">
+          <div class="card-accent historic"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon historic">🏰</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Jaffna Fort</h3>
+                <p class="card-location">Lagoon waterfront, Jaffna</p>
+              </div>
+              <button class="card-map-pin" data-id="5" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">A vast 17th-century Dutch colonial fortification overlooking the Jaffna lagoon. Walk the broad ramparts, visit the old church inside, and enjoy sweeping water views.</p>
+            <div class="card-footer">
+              <span class="tag tag-dist">Jaffna town centre</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=5769874437375921123" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="beach" data-id="6">
+          <div class="card-accent beach"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon beach">🌊</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Keerimalai Sacred Spring</h3>
+                <p class="card-location">Kankesanthurai, ~15 km north</p>
+              </div>
+              <button class="card-map-pin" data-id="6" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">A geological wonder — freshwater spring flowing just metres from the saltwater sea. Sacred to Hindus and perfect for sunset watching. Separate pools for men and women.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">8 AM – 7 PM daily</span>
+              <span class="tag tag-tip">Best at sunset</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=13788852716297512244" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="temple" data-id="7">
+          <div class="card-accent temple"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon temple">☸️</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Nagadeepa Temple</h3>
+                <p class="card-location">Nainativu Island — boat required</p>
+              </div>
+              <button class="card-map-pin" data-id="7" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">One of Sri Lanka's most revered Buddhist shrines, marking Lord Buddha's second recorded visit. A 20-min boat ride from Kurikadduwan Jetty makes the journey itself memorable.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">9 AM – 4:30 PM</span>
+              <span class="tag tag-boat">Boat Rs. 80–100</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=10540681799070112099" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="temple" data-id="8">
+          <div class="card-accent temple"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon temple">🛕</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Nainativu Nagapooshani Amman Kovil</h3>
+                <p class="card-location">Nainativu Island — same trip</p>
+              </div>
+              <button class="card-map-pin" data-id="8" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">An ornate Hindu temple dedicated to Goddess Nagapooshani on the same island as Nagadeepa. Free vegetarian meals are offered to all visitors around 1 PM daily.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">6 AM – 6 PM</span>
+              <span class="tag tag-free">Free lunch ~1 PM</span>
+              <span class="tag tag-boat">Boat required</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=7374345576813771355" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="beach" data-id="9">
+          <div class="card-accent beach"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon beach">🏖</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Casuarina Beach</h3>
+                <p class="card-location">Karainagar, ~25 km from Jaffna</p>
+              </div>
+              <button class="card-map-pin" data-id="9" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">Jaffna's most popular beach — shallow crystal-clear water safe for all ages, shaded by casuarina trees. Calm year-round, ideal for families. Vehicle entry fee applies.</p>
+            <div class="card-footer">
+              <span class="tag tag-dist">~25 km away</span>
+              <span class="tag tag-tip">Family-friendly</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=6016469970571072990" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="historic" data-id="10">
+          <div class="card-accent historic"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon historic">🧭</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Point Pedro</h3>
+                <p class="card-location">Northernmost tip of Sri Lanka</p>
+              </div>
+              <button class="card-map-pin" data-id="10" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">Stand at the very top of Sri Lanka — the island's northernmost point. A lighthouse, fishing village, and open sea stretching toward India. A landmark every visitor should see.</p>
+            <div class="card-footer">
+              <span class="tag tag-dist">~40 km from Jaffna</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=10362310834299793786" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="temple" data-id="11">
+          <div class="card-accent temple"></div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-icon temple">☸️</div>
+              <div class="card-title-block">
+                <h3 class="card-name">Dambakola Patuna Viharaya</h3>
+                <p class="card-location">Northwest coast, near Casuarina</p>
+              </div>
+              <button class="card-map-pin" data-id="11" title="Show on map">📍</button>
+            </div>
+            <p class="card-desc">Sacred landing site where Sanghamitta Thero arrived from India in the 3rd century BCE with the Bo tree sapling. A serene coral beach sits directly behind the temple.</p>
+            <div class="card-footer">
+              <span class="tag tag-hours">9 AM – 6 PM</span>
+              <span class="tag tag-dist">Near Casuarina Beach</span>
+              <a class="map-btn" href="https://maps.google.com/?cid=2120704512531891564" target="_blank" rel="noopener">↗ Map</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /grid -->
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="map-section" id="map">
+    <div class="map-section-header">
+      <div class="container">
+        <span class="section-eyebrow">WebGIS Map</span>
+        <h2 class="section-title-lg light">Interactive Location Map</h2>
+        <p class="map-desc">Click any marker to see place details. Use the layer switcher to change map style.</p>
+      </div>
+    </div>
+
+    <div class="map-wrapper">
+      <!-- SIDEBAR -->
+      <div class="map-sidebar" id="map-sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-title">All Places</span>
+          <span class="sidebar-count" id="sidebar-count">11</span>
+        </div>
+        <div class="sidebar-filters">
+          <button class="sf-btn active" data-filter="all">All</button>
+          <button class="sf-btn" data-filter="temple">Temple</button>
+          <button class="sf-btn" data-filter="historic">Historic</button>
+          <button class="sf-btn" data-filter="beach">Beach</button>
+          <button class="sf-btn" data-filter="food">Food</button>
+          <button class="sf-btn" data-filter="culture">Culture</button>
+        </div>
+        <div class="sidebar-list" id="sidebar-list"></div>
+      </div>
+
+      <!-- MAP CONTAINER -->
+      <div class="map-container" id="map-container"></div>
+
+      <!-- LAYER CONTROL -->
+      <div class="layer-control" id="layer-control">
+        <div class="layer-title">Map Style</div>
+        <label class="layer-opt">
+          <input type="radio" name="layer" value="osm" checked /> OpenStreetMap
+        </label>
+        <label class="layer-opt">
+          <input type="radio" name="layer" value="topo" /> Topographic
+        </label>
+        <label class="layer-opt">
+          <input type="radio" name="layer" value="satellite" /> Satellite
+        </label>
+        <label class="layer-opt">
+          <input type="radio" name="layer" value="dark" /> Dark Mode
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS SECTION -->
+  <section class="tips-section" id="tips">
+    <div class="container">
+      <span class="section-eyebrow">Before You Go</span>
+      <h2 class="section-title-lg light">Planning Tips</h2>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <div class="tip-icon">🚢</div>
+          <div class="tip-heading">Island day trip</div>
+          <p class="tip-text">Nagadeepa and Nainativu Kovil are on the same island. Combine them in one day. Take Route 776 bus from Jaffna to Kurikadduwan Jetty. Last boat back by 5 PM.</p>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🌅</div>
+          <div class="tip-heading">Northwest coast day</div>
+          <p class="tip-text">Casuarina Beach and Dambakola Patuna are near each other. Add Keerimalai Spring and time arrival for sunset — one of the most memorable views in the north.</p>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🏙</div>
+          <div class="tip-heading">Jaffna town cluster</div>
+          <p class="tip-text">Nallur Kovil, Mantri Manai, Rio Ice Cream, and the Public Library are all within a short drive. Ideal for a single morning or afternoon exploring.</p>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">👕</div>
+          <div class="tip-heading">Temple dress code</div>
+          <p class="tip-text">At Hindu temples, men must remove shirts. Both must cover knees. No footwear or cameras inside. Sarongs available near Nallur Kovil entrance.</p>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🕐</div>
+          <div class="tip-heading">Best time to visit</div>
+          <p class="tip-text">January to April is ideal — dry weather, clear skies. Avoid visiting during Nallur Festival (July–August) unless you plan to join the 25-day celebration.</p>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🚌</div>
+          <div class="tip-heading">Getting around</div>
+          <p class="tip-text">Tuk-tuks are the easiest way for short distances. For beaches and outer sites, rent a motorbike or hire a private vehicle for the day — very affordable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>Jaffna</span> Travel Guide
+      </div>
+      <p class="footer-text">Northern Sri Lanka · 11 Places to Visit · WebGIS Powered by Leaflet &amp; OpenStreetMap</p>
+      <div class="footer-links">
+        <a href="#home">Top</a>
+        <a href="#places">Places</a>
+        <a href="#map">Map</a>
+        <a href="#tips">Tips</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/places.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
